@@ -10,7 +10,7 @@ function displayNotes() {
         noteElement.classList.add("note-item");
         noteElement.innerHTML = `
             <h3>${note.title}</h3>
-            <p>${note.description}</p>
+            <p>${note.body}</p>
             <button class="delete-button">Delete</button>
         `;
         noteList.appendChild(noteElement);
