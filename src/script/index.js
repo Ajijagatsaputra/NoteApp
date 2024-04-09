@@ -9,9 +9,14 @@ function displayNotes() {
         const noteElement = document.createElement("div");
         noteElement.classList.add("note-item");
         noteElement.setAttribute("data-note-id", note.id); // Tambahkan atribut data-note-id
+        
+        // Periksa apakah note.body dan note.description tidak undefined
+        const body = note.body ? note.body : '';
+        const description = note.description ? note.description : '';
+        
         noteElement.innerHTML = `
             <h3>${note.title}</h3>
-            <p>${note.body}, ${note.description}</p>
+            <p>${body}, ${description}</p>
             <button class="delete-button">Delete</button>
         `;
         noteList.appendChild(noteElement);
