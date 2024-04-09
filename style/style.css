@@ -1,8 +1,8 @@
 body {
     font-family: 'Quicksand', sans-serif;
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #4a4d50;
 }
 
 .container {
@@ -11,36 +11,53 @@ body {
     height: 100vh;
 }
 
+.title {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    color: #eff1f2;
+    margin-top: 20px;
+    font-size: 36px;
+}
+
 .item-card {
-    background-color: #f0f0f0;
+    background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 90%; /* Menggunakan persentase untuk responsifitas */
+    max-width: 600px; /* Maksimum lebar untuk menjaga keleganan pembacaan */
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+    margin: 0 auto; /* Membuat margin atas dan bawah menjadi 0, dan margin kiri dan kanan menjadi otomatis untuk memusatkan */
 }
 
 .input-card {
-    max-width: 400px;
+    width: 400px;
     margin: 0 auto;
 }
 
 form {
     display: grid;
-    gap: 10px;
+    gap: 20px;
 }
 
 label {
-    font-size: 16px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
 }
 
 input[type="text"] {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     transition: border-color 0.3s;
 }
 
-input[type="text"]:focus {
+.input-card input:focus {
     border-color: #007bff;
 }
 
@@ -49,6 +66,7 @@ input[type="text"]:focus {
 }
 
 button[type="submit"] {
+    font-family: 'Poppins', sans-serif; /* Fixed typo here */
     padding: 12px 24px;
     background-color: #007bff;
     color: #fff;
@@ -63,19 +81,23 @@ button[type="submit"]:hover {
 }
 
 .card {
-    max-width: 600px;
-    margin: 20px auto;
+    max-width: 800px;
+    margin: 50px; /* Membuat margin atas dan bawah menjadi 0, dan margin kiri dan kanan menjadi otomatis untuk memusatkan */
+    display: grid;
+    gap: 50px;
     padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0; /* Warna latar belakang yang lebih lembut */
+    border: 1px solid #ddd; /* Perubahan warna border untuk kesan yang lebih lembut */
+    border-radius: 15px; /* Meningkatkan radius border untuk tampilan yang lebih halus */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Meningkatkan ukuran bayangan untuk efek yang lebih dramatis */
 }
+
 
 #noteList {
     margin-top: 20px;
     display: grid;
     gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .note-item {
@@ -88,8 +110,9 @@ button[type="submit"]:hover {
 }
 
 .note-item h3 {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 10px;
+    color: #007bff;
 }
 
 .note-item p {

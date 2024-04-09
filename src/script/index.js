@@ -1,4 +1,6 @@
-import { getNotes, addNote, deleteNote } from './data/noteData.js'; // Mengimpor fungsi yang diperlukan dari file noteData.js
+import './note-app.js'; // Import the NoteApp component
+import './card.js'; // Import the NoteCard component
+import { getNotes, addNote, deleteNote } from './data/noteData.js'; // Import necessary functions from noteData.js
 
 function displayNotes() {
     const noteList = document.getElementById("noteList");
@@ -8,15 +10,14 @@ function displayNotes() {
     notes.forEach((note) => {
         const noteElement = document.createElement("div");
         noteElement.classList.add("note-item");
-        noteElement.setAttribute("data-note-id", note.id); // Tambahkan atribut data-note-id
+        noteElement.setAttribute("data-note-id", note.id);
         
-        // Periksa apakah note.body dan note.description tidak undefined
         const body = note.body ? note.body : '';
         const description = note.description ? note.description : '';
         
         noteElement.innerHTML = `
             <h3>${note.title}</h3>
-            <p>${body}, ${description}</p>
+            <p>${body ? body + ' ' : ''}${description}</p>
             <button class="delete-button">Delete</button>
         `;
         noteList.appendChild(noteElement);
@@ -46,8 +47,8 @@ displayNotes();
 
 document.getElementById("noteList").addEventListener("click", (event) => {
     if (event.target.classList.contains("delete-button")) {
-        const noteId = event.target.parentElement.getAttribute("data-note-id"); // Ambil ID catatan
-        deleteNote(noteId); // Hapus catatan dengan ID yang sesuai
-        displayNotes(); // Menampilkan catatan yang diperbarui setelah dihapus
+        const noteId = event.target.parentElement.getAttribute("data-note-id");
+        deleteNote(noteId);
+        displayNotes();
     }
 });
